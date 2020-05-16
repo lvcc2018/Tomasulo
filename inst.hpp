@@ -77,6 +77,23 @@ struct instruction
         return LOAD;
     }
 
+    string print_inst_state()
+    {
+        string inst_str;
+        char buf[32];
+        switch (type)
+        {
+        case LOAD:
+            sprintf(buf, "%s %d %d", get_name().c_str(), dest, addr);
+            break;
+        default:
+            sprintf(buf, "%s %d %d %d", get_name().c_str(), dest, src1, src2);
+            break;
+        }
+        inst_str = buf;
+        return inst_str;
+    }
+
     int get_cycle_num(char _type)
     {
         switch (_type)
