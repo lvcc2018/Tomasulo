@@ -1,5 +1,5 @@
-#ifndef CONFIG_H
-#define CONFIG_H
+#ifndef INST_H
+#define INST_H
 
 #include <string>
 #include <cstdlib>
@@ -80,7 +80,7 @@ struct instruction
     string print_inst_state()
     {
         string inst_str;
-        char buf[32];
+        char buf[128];
         switch (type)
         {
         case LOAD:
