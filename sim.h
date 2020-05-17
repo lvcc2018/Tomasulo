@@ -48,10 +48,10 @@ struct reserve_station
             switch (inst->type)
             {
             case LOAD:
-                printf("Busy: %d\tCurrent Instruction Type: %s\tAddress: %d", busy, inst->get_name().c_str(), addr);
+                printf("Busy: %d\tCurrent Instruction Type: %s\tAddress: %d", busy, inst->get_name(inst->type).c_str(), addr);
                 break;
             default:
-                printf("Busy: %d\tCurrent Instruction Type: %s\tVj: %d\tVk: %d\tQj: %s\tQk: %s\n", busy, inst->get_name().c_str(), vj, vk, (qj == nullptr) ? "empty" : qj->rs_name.c_str(), (qk == nullptr) ? "empty" : qk->rs_name.c_str());
+                printf("Busy: %d\tCurrent Instruction Type: %s\tVj: %d\tVk: %d\tQj: %s\tQk: %s\n", busy, inst->get_name(inst->type).c_str(), vj, vk, (qj == nullptr) ? "empty" : qj->rs_name.c_str(), (qk == nullptr) ? "empty" : qk->rs_name.c_str());
                 break;
             }
         }
