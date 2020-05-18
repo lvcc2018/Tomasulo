@@ -50,7 +50,7 @@ void write_files(string path, vector<instruction> insts)
 int main()
 {
     vector<instruction> insts;
-    read_files("TestCase/0.basic.nel", insts);
+    read_files("TestCase/1.basic.nel", insts);
     Simulator sim;
     int id = 0, step;
     //sim.print_sim_state();
@@ -59,12 +59,12 @@ int main()
     {
         printf("%s\n", insts[id].print_inst_state().c_str());
         step = sim.Cycle(id < insts.size() ? &insts[id] : nullptr);
-        // sim.print_sim_state();
+        sim.print_sim_state();
         if (step == -1)
             break;
         id += step;
     }
     printf("Finished\n");
-    write_files("2017011441_0.basic.log", insts);
+    write_files("2017011441_1.basic.log", insts);
     return 0;
 }
