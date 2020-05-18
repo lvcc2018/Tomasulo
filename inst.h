@@ -10,7 +10,6 @@
 #define SUB_CYCLE_NUM 3
 #define MUL_CYCLE_NUM 4
 #define DIV_CYCLE_NUM 4
-#define JUMP_CYCLE_NUM 1
 #define DIV_BY_ZERO_CYCLE_NUM 1
 
 using namespace std;
@@ -21,8 +20,7 @@ enum instruction_type
     ADD,
     SUB,
     MUL,
-    DIV,
-    JUMP
+    DIV
 };
 
 struct instruction
@@ -50,8 +48,6 @@ struct instruction
             return "MUL";
         case DIV:
             return "DIV";
-        case JUMP:
-            return "JUMP";
         default:
             printf("Illigal Instruction Type");
         }
@@ -71,10 +67,9 @@ struct instruction
             return MUL;
         case 'D':
             return DIV;
-        case 'J':
-            return JUMP;
+        default:
+            return LOAD;
         }
-        return LOAD;
     }
 
     string print_inst_state()
@@ -108,8 +103,6 @@ struct instruction
             return MUL_CYCLE_NUM;
         case 'D':
             return DIV_CYCLE_NUM;
-        case 'J':
-            return JUMP_CYCLE_NUM;
         }
         return 0;
     }
@@ -145,7 +138,6 @@ struct instruction
             inst.dest = _dest;
             inst.addr = _src1;
         }
-
         return inst;
     }
 };
